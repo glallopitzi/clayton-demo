@@ -13,8 +13,8 @@
         <categories>Purchase Order Builder</categories>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Label for details section header</shortDescription>
-        <value>Details</value>
+        <shortDescription>Label for details section header [updated for demo]</shortDescription>
+        <value>Details [updated for demo]</value>
     </labels>
     <labels>
         <fullName>POB_Filter</fullName>
