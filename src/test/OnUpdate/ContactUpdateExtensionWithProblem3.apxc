@@ -1,0 +1,15 @@
+public with sharing class ContactUpdateExtensionWithProblem3 {
+  public String statusToSet {get;set;}
+  private Contact c;
+
+  public ContactUpdateExtensionWithProblem3(ApexPages.StandardController ctr) {
+    c = [SELECT Status__c FROM Contact WHERE Id=: ctr.getRecord().Id];
+  }
+
+  @AuraEnabled
+  public PageReference updateStatus(Boolean statusToSet) {
+    c.Status__c = statusToSet;
+    Database.update(c);
+    return null;
+  }
+}

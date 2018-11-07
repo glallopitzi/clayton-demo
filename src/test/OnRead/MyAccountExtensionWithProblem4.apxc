@@ -1,0 +1,17 @@
+public with sharing class MyAccountExtensionWithProblem4 {
+    private Account a;
+
+    public MyAccountExtensionWithProblem4(ApexPages.StandardController ctr) {
+
+        // WRONG Check if the user has read access
+        if (!Schema.sObjectType.Account.fields.Name.isUpdateable()){
+            return '';
+        }
+
+        a = [SELECT Name FROM Account WHERE Id=: ctr.getRecord().Id];
+    }
+
+    public String getName() {
+        return a.Name;
+    }
+}

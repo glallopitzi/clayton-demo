@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Various Settings for the Nimble Community product.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>AuthorizationClass__c</fullName>
+        <description>The name of the class that implements the CommunityAuthorization interface. The authorization class is responsible for determining if an account can access community. If blank, the packaged CommunityAuthorization class will be used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the class that implements the CommunityAuthorization interface. The authorization class is responsible for determining if an account can access community. If blank, the packaged CommunityAuthorization class will be used.</inlineHelpText>
+        <label>Authorization Class</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefaultUserTimeZone__c</fullName>
+        <defaultValue>&quot;America/New_York&quot;</defaultValue>
+        <description>The default time zone for the user when they join Nimble Community.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The default time zone for the user when they join Nimble Community.</inlineHelpText>
+        <label>Default User Time Zone</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UserLocatorClass__c</fullName>
+        <description>The name of the class that implements the ICommunityUserLocator interface. This class is responsible for finding an existing user or creating a new user during login with OpenId Connect. If blank, the packaged CommunityUserLocator class will be used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the class that implements the ICommunityUserLocator interface. This class is responsible for finding an existing user or creating a new user during login with OpenId Connect. If blank, the packaged CommunityUserLocator class will be used.</inlineHelpText>
+        <label>User Locator Class</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UserPopulaterClass__c</fullName>
+        <description>The name of the class that implements the ICommunityUserPopulater interface. This class is responsible for populating a user with the information passed in during login from OpenId Connect. If blank, the packaged CommunityUserPopulater class will be used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the class that implements the ICommunityUserPopulater interface. This class is responsible for populating a user with the information passed in during login from OpenId Connect. If blank, the packaged CommunityUserPopulater class will be used.</inlineHelpText>
+        <label>User Populater Class</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UserProfileName__c</fullName>
+        <defaultValue>&quot;Customer Community User&quot;</defaultValue>
+        <description>The name of the profile that will be applied to Users created in the community.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the profile that will be applied to Users created in the community.</inlineHelpText>
+        <label>User Profile Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Community Settings</label>
+    <visibility>Protected</visibility>
+</CustomObject>

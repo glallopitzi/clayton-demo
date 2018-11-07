@@ -1,0 +1,11 @@
+public with sharing class MyAccountExtensionWithoutProblem7 {
+    private CommunitySettings__c a;
+
+    public MyAccountExtensionWithoutProblem1(ApexPages.StandardController ctr) {
+        a = [SELECT Name FROM CommunitySettings__c WHERE Id=: ctr.getRecord().Id];
+    }
+
+    public String getName() {
+        return a.Name;
+    }
+}

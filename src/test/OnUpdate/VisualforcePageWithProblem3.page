@@ -1,0 +1,9 @@
+<apex:page standardcontroller="Contact" extensions="ContactUpdateExtensionWithProblem4">
+
+  <apex:pageBlock title="CommunitySettings">
+      <apex:form>
+        <apex:commandButton action="{!updateSettings}" value="Update" />
+      </apex:form>
+    </apex:pageBlock>
+
+</apex:page>

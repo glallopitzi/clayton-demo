@@ -1,0 +1,16 @@
+public with sharing class MyAccountExtensionWithProblem6 {
+    private Account a;
+
+    public MyAccountExtensionWithProblem6(ApexPages.StandardController ctr) {
+        a = [SELECT Name FROM Account WHERE Id=: ctr.getRecord().Id];
+    }
+
+    public String getName() {
+
+        if (!Schema.sObjectType.Account.fields.Name.isAccessible()){
+            return '';
+        }
+
+        return a.Name;
+    }
+}

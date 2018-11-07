@@ -1,0 +1,13 @@
+public with sharing class LeadConverterExtensionWithProblem1 {
+    private Lead l;
+
+    public LeadConverterExtensionWithProblem1(ApexPages.StandardController ctr) {
+      l = [SELECT Id FROM Lead WHERE Id=:ctr.getRecord().Id];
+    }
+
+    public PageReference deleteLead() {
+      delete l;
+      return null;
+    }
+
+}

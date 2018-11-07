@@ -1,0 +1,17 @@
+public with sharing class LeadConverterExtensionWithProblem2 {
+
+    private Lead l;
+
+
+    public LeadConverterExtensionWithProblem1(ApexPages.StandardController ctr) {
+      l = [SELECT FirstName,LastName,Phone,Company FROM Lead WHERE Id=:ctr.getRecord().Id];
+    }
+
+    public PageReference convertLead() {
+        CommunitySettings__c c = new CommunitySettings__c(fakeField='foo');
+        insert c;
+
+        return null;
+    }
+
+}

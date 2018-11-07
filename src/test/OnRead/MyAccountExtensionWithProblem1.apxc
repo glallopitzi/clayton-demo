@@ -1,0 +1,13 @@
+public with sharing class MyAccountExtensionWithProblem1 {
+    private Account a;
+
+    // No check at all
+    public MyAccountExtensionWithProblem1(ApexPages.StandardController ctr) {
+        a = [SELECT Name FROM Account WHERE Id=: ctr.getRecord().Id];
+    }
+
+    public String getName() {
+        return a.Name;
+    }
+
+}

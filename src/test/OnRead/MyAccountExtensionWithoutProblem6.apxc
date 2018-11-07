@@ -1,0 +1,33 @@
+public with sharing class MyAccountExtensionWithoutProblem6 {
+
+    public MyAccountExtensionWithoutProblem6(ApexPages.StandardController ctr) {
+    }
+
+    @AuraEnabled
+    public static List<Account> getAccounts() {
+
+        String [] fields = new String [] {
+            'Id',
+            'Name',
+            'Location__Latitude__s',
+            'Location__Longitude__s'
+        };
+
+        Map<String,Schema.SObjectField> m = Schema.SObjectType.Account.fields.getMap();
+
+        for (String field : fields) {
+
+            // Check if user has permission to view field
+            if (!m.get(field).getDescribe().isAccessible()) {
+                throw new System.NoAccessException()
+                return null;
+            }
+        }
+
+        return [SELECT id, name, Location__Latitude__s, Location__Longitude__s
+            FROM Account
+            WHERE Location__Latitude__s != NULL AND Location__Longitude__s != NULL
+            LIMIT 50];
+
+     }
+}

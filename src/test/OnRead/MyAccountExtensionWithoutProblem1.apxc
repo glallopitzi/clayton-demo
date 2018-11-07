@@ -1,0 +1,17 @@
+public with sharing class MyAccountExtensionWithoutProblem1 {
+    private Account a;
+
+    public MyAccountExtensionWithoutProblem1(ApexPages.StandardController ctr) {
+
+        // Check if the user has read access on the Account.Name field
+        if (!Schema.sObjectType.Account.fields.Name.isAccessible()){
+            return '';
+        }
+
+        a = [SELECT Name FROM Account WHERE Id=: ctr.getRecord().Id];
+    }
+
+    public String getName() {
+        return a.Name;
+    }
+}

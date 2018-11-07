@@ -1,0 +1,17 @@
+public with sharing class MyAccountExtensionWithProblem2 {
+    private Account a;
+
+    public MyAccountExtensionWithProblem2(ApexPages.StandardController ctr) {
+
+        // Check if the user has read access on the WRONG field
+        if (!Schema.sObjectType.Account.fields.Surname.isAccessible()){
+            return '';
+        }
+
+        a = [SELECT Name FROM Account WHERE Id=: ctr.getRecord().Id];
+    }
+
+    public String getName() {
+        return a.Name;
+    }
+}

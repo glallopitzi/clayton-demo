@@ -1,0 +1,12 @@
+public with sharing class MyAccountExtensionWithProblem7 {
+    private Account a;
+
+    public MyAccountExtensionWithProblem7(ApexPages.StandardController ctr) {
+    }
+
+    @AuraEnabled
+    public String getName() {
+        a = [SELECT Name FROM Account WHERE Id=: ctr.getRecord().Id];
+        return a.Name;
+    }
+}

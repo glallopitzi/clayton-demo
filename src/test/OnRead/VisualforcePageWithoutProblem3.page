@@ -1,0 +1,4 @@
+<apex:page standardController="Account"
+    extensions="MyAccountExtensionWithoutProblem3">
+    <apex:outputText value="{!name}" />
+</apex:page>
