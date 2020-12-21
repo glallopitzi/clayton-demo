@@ -1,7 +1,42 @@
 public with sharing class LineItemTriggerHandler {
 		
   
+	@AuraEnabled
+    public static CandidateGradeInfo getCandidateGrade(String contactId) {
+	
+	String selectQueryString = 'SELECT Name, Salary__c, NextAvailableDate__c FROM Contact where Id = \'' + contactId + '\'';
+        Contact currentContact = Database.query(selectQueryString);
+	    
+        User currentUser = [SELECT Seniority__c FROM User where Id = :UserInfo.getUserId()];
+        String temperature = '';
+        Double commission = 0;
+	    
+	List<Contact> currentContacts = [SELECT Name, Salary__c, NextAvailableDate__c FROM Contact];
+        
+        if (currentContact.Salary__c >= 100000 && Date.today().daysBetween(currentContact.NextAvailableDate__c) < 90 ) {
+            temperature = 'Hot';
+        }
+        else if (currentContact.Salary__c < 100000 && Date.today().daysBetween(currentContact.NextAvailableDate__c) < 90 ) {
+            temperature = 'Medium';
+        }
+        else {
+            temperature = 'Cold';
+        }
 
+        Map<String, Double> seniorityCommissionMap = new Map<String, Double>();
+        seniorityCommissionMap.put('Senior',0.15);
+        seniorityCommissionMap.put('Medium',0.1);
+        seniorityCommissionMap.put('Junior',0.05);
+
+        if (seniorityCommissionMap.containsKey(currentUser.Seniority__c)) {
+            commission = Double.valueOf(currentContact.Salary__c) * seniorityCommissionMap.get(currentUser.Seniority__c);
+        }
+        else {
+            commission = Double.valueOf(currentContact.Salary__c) * 0.1;
+        }
+
+        return new CandidateGradeInfo(temperature, String.valueOf(commission));
+    }
 	
 	/** 
 	This handler methods is to be used on all relevant triggers events.
