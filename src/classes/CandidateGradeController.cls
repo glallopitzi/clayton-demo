@@ -38,7 +38,11 @@ public with sharing class CandidateGradeController {
     public static CandidateGradeInfo getCandidateGrade2(Id contactId, String contactId2) {
         Contact currentContact = [SELECT Name, Salary__c, NextAvailableDate__c FROM Contact where Id = :contactId];
         User currentUser = [SELECT Seniority__c FROM User where Id = :UserInfo.getUserId()];
-        User currentUser2 = [SELECT Seniority__c FROM User where Id = :contactId2];
+        
+        // Build the query
+        String selectQueryString2 = 'SELECT Name, Salary__c, NextAvailableDate__c FROM Contact where Id = \'' + contactId2 + '\'';
+        Contact currentContact2 = Database.query(selectQueryString2);
+
         String temperature = '';
         Double commission = 0;
         
