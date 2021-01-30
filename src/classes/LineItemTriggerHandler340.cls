@@ -1,4 +1,4 @@
-public with sharing class LineItemTriggerHandler34 {
+public with sharing class LineItemTriggerHandler340 {
 		
   
 
@@ -22,6 +22,9 @@ public with sharing class LineItemTriggerHandler34 {
 		List<Order__c> orders = [SELECT Purchased__c,Product_Category_1__c,Product_Category_Units_1__c,Product_Category_2__c,Product_Category_Units_2__c FROM Order__c WHERE Id in :orderIds];
 		List<Line_Item__c> lineItems = [SELECT Order__c, Amount__c, Lot__r.Product_Category__c, Units__c FROM Line_Item__c WHERE Order__c in :orderIds];
 		
+
+
+
 		// execute business logic & persist
 		updatePurchasedAmount(orders, lineItems);
 		updateCategories(orders, lineItems);
@@ -44,7 +47,6 @@ public with sharing class LineItemTriggerHandler34 {
 			thisOrderAmount = (thisOrderAmount!=null) ? thisOrderAmount : 0; 
 			thisOrderAmount += i.Amount__c; 
 			orderToAmountMap.put(i.Order__c, thisOrderAmount);
-//			update i;
 		}
 		for (Order__c o : orders) {
 			Decimal orderAmount = orderToAmountMap.get(o.Id); 
@@ -103,6 +105,10 @@ public with sharing class LineItemTriggerHandler34 {
 				add(li.Order__c, li.Lot__r.Product_Category__c, li.Units__c);
 			}
 		}
+
+		// A new comment here
+
+		String aQuery = "SELECT";
 		
 		// Maintain an inner data structure counting wrappers (units), per product category, per order
 		private void add(Id orderId, String productCategory, Decimal units) {
