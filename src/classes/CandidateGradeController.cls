@@ -3,6 +3,7 @@ public with sharing class CandidateGradeController {
     }
 
 
+    /* a feature branch comment */
 
     @AuraEnabled
     public static CandidateGradeInfo getCandidateGrade(Id contactId, String contactId2) {
