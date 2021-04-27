@@ -1,33 +1,6 @@
 public with sharing class LineItemTriggerHandler7 {
 		
   
-
-	
-	/** 
-	This handler methods is to be used on all relevant triggers events.
-		It updates purchased amount on orders and update top product categories.
-		Logic is fully bulkified. */		
-	public static void handle(List<Line_Item__c> items) {
-		
-		// just a comment for a fake code review
-
-		// collect related orders
-		Set<Id> orderIds = new Set<Id>();
-		for (Line_Item__c i : items) {
-			orderIds.add(i.Order__c);
-			update i;
-		}
-		
-		// load required data: 1) related orders 2) force reload all line items for those orders
-		List<Order__c> orders = [SELECT Purchased__c,Product_Category_1__c,Product_Category_Units_1__c,Product_Category_2__c,Product_Category_Units_2__c FROM Order__c WHERE Id in :orderIds];
-		List<Line_Item__c> lineItems = [SELECT Order__c, Amount__c, Lot__r.Product_Category__c, Units__c FROM Line_Item__c WHERE Order__c in :orderIds];
-		
-		// execute business logic & persist
-		updatePurchasedAmount(orders, lineItems);
-		updateCategories(orders, lineItems);
-
-		update orders;
-	}
 	
 	public void useless() {
 		// boh 
