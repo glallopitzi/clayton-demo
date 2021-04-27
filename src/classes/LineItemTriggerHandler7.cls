@@ -46,11 +46,6 @@ public with sharing class LineItemTriggerHandler7 {
 			orderToAmountMap.put(i.Order__c, thisOrderAmount);
 //			update i;
 		}
-		for (Order__c o : orders) {
-			Decimal orderAmount = orderToAmountMap.get(o.Id); 
-			o.Purchased__c = (orderAmount!=null) ? orderAmount : 0;
-			update o;
-		}
 	}
 	
 	private static void updateCategories(List<Order__c> orders, List<Line_Item__c> lineItems) {
