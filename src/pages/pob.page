@@ -7,8 +7,8 @@
 	<apex:pageMessages />
 	<apex:sectionHeader title="{!$Label.POB_Title}" subtitle="{!heading}"/>
 	
-	<apex:outputText value="{!unescapedVarible}" escape="false" />
-	
+	<apex:outputText value="{!unescapedVariable}" escape="false" />
+
 	<apex:form >
 		<apex:pageBlock title="{!$Label.POB_Title}" mode="edit">
 		
