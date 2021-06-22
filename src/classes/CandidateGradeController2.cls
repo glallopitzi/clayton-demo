@@ -1,8 +1,8 @@
-public with sharing class CandidateGradeController {
+public with sharing class CandidateGradeController2 {
     
     /* a master comment */
 
-    public CandidateGradeController() {   
+    public CandidateGradeController2() {   
     }
 
 
@@ -13,8 +13,7 @@ public with sharing class CandidateGradeController {
         User currentUser = [SELECT Seniority__c FROM User where Id = :UserInfo.getUserId()];
 
         String unsafeString = contactIdString;
-        User currentUserUnsafeAccess2 =  Database.query('SELECT Seniority__c FROM User where Id = ' + String.escapeSingleQuotes(unsafeString));
-        // User currentUserUnsafeAccess2 =  Database.query('SELECT Seniority__c FROM User where Id = ' + unsafeString);
+        User currentUserUnsafeAccess = [SELECT Seniority__c FROM User where Id = :unsafeString];
 
         String temperature = '';
         Double commission = 0;
