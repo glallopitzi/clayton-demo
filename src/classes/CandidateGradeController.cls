@@ -12,7 +12,8 @@ public with sharing class CandidateGradeController {
         Contact currentContact = [SELECT Name, Salary__c, NextAvailableDate__c FROM Contact where Id = :contactId];
         User currentUser = [SELECT Seniority__c FROM User where Id = :UserInfo.getUserId()];
 
-        User currentUserUnsafeAccess = [SELECT Seniority__c FROM User where Id = :contactIdString];
+        String unsafeString = contactIdString;
+        User currentUserUnsafeAccess = [SELECT Seniority__c FROM User where Id = :unsafeString];
 
         String temperature = '';
         Double commission = 0;
