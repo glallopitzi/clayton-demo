@@ -13,7 +13,7 @@ public with sharing class CandidateGradeController {
         User currentUser = [SELECT Seniority__c FROM User where Id = :UserInfo.getUserId()];
 
         String unsafeString = contactIdString;
-        User currentUserUnsafeAccess =  Database.query('SELECT Seniority__c FROM User where Id = ' + unsafeString);
+        User currentUserUnsafeAccess =  Database.query('SELECT Seniority__c FROM User where Id = ' + String.escapeSingleQuotes(unsafeString));
 
         String temperature = '';
         Double commission = 0;
