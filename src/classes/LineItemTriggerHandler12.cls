@@ -1,4 +1,4 @@
-public with sharing class LineItemTriggerHandler11 {
+public with sharing class LineItemTriggerHandler12 {
 		
   
 
@@ -21,8 +21,6 @@ public with sharing class LineItemTriggerHandler11 {
 		// load required data: 1) related orders 2) force reload all line items for those orders
 		List<Order__c> orders = [SELECT Purchased__c,Product_Category_1__c,Product_Category_Units_1__c,Product_Category_2__c,Product_Category_Units_2__c FROM Order__c WHERE Id in :orderIds];
 		List<Line_Item__c> lineItems = [SELECT Order__c, Amount__c, Lot__r.Product_Category__c, Units__c FROM Line_Item__c WHERE Order__c in :orderIds];
-
-		
 		
 		// execute business logic & persist
 		updatePurchasedAmount(orders, lineItems);
