@@ -7,6 +7,8 @@ public with sharing class CandidateGradeController {
 
 
 
+
+
     @AuraEnabled
     public static CandidateGradeInfo getCandidateGrade(Id contactId) {
         Contact currentContact = [SELECT Name, Salary__c, NextAvailableDate__c FROM Contact where Id = :contactId];
