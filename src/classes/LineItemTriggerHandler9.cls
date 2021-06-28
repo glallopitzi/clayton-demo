@@ -1,4 +1,4 @@
-public with sharing class LineItemTriggerHandler008 {
+public with sharing class LineItemTriggerHandler009 {
 		
   
 
@@ -10,6 +10,8 @@ public with sharing class LineItemTriggerHandler008 {
 	public static void handle(List<Line_Item__c> items) {
 		
 		// just a comment for a fake code review
+
+
 
 		// collect related orders
 		Set<Id> orderIds = new Set<Id>();
