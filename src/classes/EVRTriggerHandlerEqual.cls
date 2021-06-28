@@ -15,6 +15,7 @@ public without sharing class EVRTriggerHandler {
     }
     
     public EVRTriggerHandler handleCountAfterInsert() {
+        
         Map<Id, Set<Id>> wrapper = new Map<Id, Set<Id>>();
         
         List<Event_Visit_Report__c> evrList = new List<Event_Visit_Report__c>();
