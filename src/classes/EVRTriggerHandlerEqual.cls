@@ -12,6 +12,8 @@ public without sharing class EVRTriggerHandler {
     public EVRTriggerHandler(List<Event_Visit_Report__c> scope, Map<Id, Event_Visit_Report__c> scopeMap) {
         this.scope = scope;
         this.scopeMap = scopeMap;
+
+        
     }
     
     public EVRTriggerHandler handleCountAfterInsert() {
