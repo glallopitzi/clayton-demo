@@ -23,7 +23,7 @@
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
 @isTest
-private class LineItemTriggerTest {
+private class LineItemTriggerTESTTest {
 	
 	private static final Integer TEST_VOLUMES_NUMBER_OF_ACCOUNTS = 100;
 	private static final Integer TEST_VOLUMES_NUMBER_OF_LOTS = 1000;
@@ -41,9 +41,9 @@ private class LineItemTriggerTest {
 		Test.startTest();
 		
 		// Prepare wrappers: w1=w2, w1>w3
-		LineItemTriggerHandler.CategoryWrapper w1 = new LineItemTriggerHandler.CategoryWrapper('w1');
-		LineItemTriggerHandler.CategoryWrapper w2 = new LineItemTriggerHandler.CategoryWrapper('w2');
-		LineItemTriggerHandler.CategoryWrapper w3 = new LineItemTriggerHandler.CategoryWrapper('w3');
+		LineItemTriggerTESTHandler.CategoryWrapper w1 = new LineItemTriggerTESTHandler.CategoryWrapper('w1');
+		LineItemTriggerTESTHandler.CategoryWrapper w2 = new LineItemTriggerTESTHandler.CategoryWrapper('w2');
+		LineItemTriggerTESTHandler.CategoryWrapper w3 = new LineItemTriggerTESTHandler.CategoryWrapper('w3');
 		w1.addUnits(1);
 		w2.addUnits(1);
 		w3.addUnits(2);

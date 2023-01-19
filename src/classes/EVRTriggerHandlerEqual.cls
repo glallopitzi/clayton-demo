@@ -1,4 +1,4 @@
-public without sharing class EVRTriggerHandler {
+public inherited sharing class EVRTriggerHandler {
     private static Boolean triggerFired = false;
     private static Boolean afterInsertExecuted = false;
     private static Boolean afterUpdateExecuted = false;

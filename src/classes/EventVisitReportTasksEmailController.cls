@@ -1,4 +1,4 @@
-public without sharing class EventVisitReportTasksEmailController {
+public inherited sharing class EventVisitReportTasksEmailController {
 
     private final Event_Visit_Report__c myEVR;
     public boolean hasErrors {get;set;}
