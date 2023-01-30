@@ -1,4 +1,4 @@
-public class CandidateGradeController {
+public inherited sharing class CandidateGradeController {
     
     /* a master comment */
 
