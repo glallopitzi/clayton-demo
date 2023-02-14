@@ -10,7 +10,8 @@ public class PropertyControllerTest {
         } catch (Exception e) {
             success = false;
         } finally {
-	        System.assert(success);
+	        System.assert(success, Assert that the test was successful.
+);
         }
     }
 
@@ -25,7 +26,8 @@ public class PropertyControllerTest {
         } catch (Exception e) {
             success = false;
         } finally {
-	        System.assert(success);
+	        System.assert(success, Assert that the test was successful.
+);
         }
     }
 
@@ -38,7 +40,8 @@ public class PropertyControllerTest {
         } catch (Exception e) {
             success = false;
         } finally {
-	        System.assert(success);
+	        System.assert(success, Assert that the test was successful.
+);
         }
     }
 
@@ -51,7 +54,8 @@ public class PropertyControllerTest {
         } catch (Exception e) {
             success = false;
         } finally {
-	        System.assert(success);
+	        System.assert(success, Assert that the test was successful.
+);
         }
     }
 
@@ -64,7 +68,8 @@ public class PropertyControllerTest {
         } catch (Exception e) {
             success = false;
         } finally {
-	        System.assert(success);
+	        System.assert(success, Assert that the test was successful.
+);
         }
     }
 

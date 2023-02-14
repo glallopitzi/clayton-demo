@@ -37,8 +37,10 @@ private class CreateUpdateSOTest {
         
         CreateUpdateSO.updateSO(sop);
         
-        system.assertEquals(7,sos.size());
-        system.assertEquals(7,sop.size());
+        system.assertEquals(7,sos.size(), Assert that 7 sos are in the system.
+);
+        system.assertEquals(7,sop.size(), Assert that the size of the SOP table is 7.
+);
         
         Test.stopTest();    
     }
