@@ -1,4 +1,4 @@
-public class EventVisitReportTasksEmailControllerEqual {
+public inherited sharing class EventVisitReportTasksEmailControllerEqual {
 
     private final Event_Visit_Report__c myEVR;
     public boolean hasErrors {get;set;}
