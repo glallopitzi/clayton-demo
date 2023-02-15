@@ -62,7 +62,7 @@ public class Attachment_Controller_Test{
         acc1.Partner_Type__c = 'Hughes Sales Agent (HSA)';
         acc1.RecordTypeId = partnerAccRecordTypeId;
         accountList.add(acc1);
-        System.assertEquals(acc1.RecordTypeId,partnerAccRecordTypeId);
+        System.assertEquals(acc1.RecordTypeId,partnerAccRecordTypeId, 'This method is used to assert that two AccRecordTypes are equal.');
         Account acc2 = new Account();
         acc2.Name = 'account2';
         acc2.PartnerId__c = '890';
@@ -150,7 +150,7 @@ public class Attachment_Controller_Test{
         case1.add('666,15,true');
         case1.add('offerdel,15,true');
         List<String> SaveCSV = Attachment_Controller.SaveCSV(case1, 'Import');
-        System.assertEquals(SaveCSV[0],System.Label.OfferMgmt_FileUploadSuccessMsg);
+        System.assertEquals(SaveCSV[0],System.Label.OfferMgmt_FileUploadSuccessMsg, 'This test asserts that SaveCSV is successful.');
         test.stopTest();
     }
     
@@ -161,7 +161,7 @@ public class Attachment_Controller_Test{
         List<String> case1 = new List<String>{headers,'Test1FAP,HNSDWAYISP,true'};
             case1.add(',Test1FAP,true');
         List<String> SaveCSV = Attachment_Controller.SaveCSV(case1, 'Import');
-        System.assertEquals(SaveCSV[0],System.Label.OfferMgmt_FileUploadSuccessMsg);
+        System.assertEquals(SaveCSV[0],System.Label.OfferMgmt_FileUploadSuccessMsg, 'This test asserts that SaveCSV is successful.');
         test.stopTest();
     }    
     
@@ -172,7 +172,7 @@ public class Attachment_Controller_Test{
         List<String> case1 = new List<String>{headers,'ttt,15,true'};
             case1.add('offerdel,890,false');
         List<String> SaveCSV = Attachment_Controller.SaveCSV(case1, 'Import'); 
-        System.assertEquals(SaveCSV[0],System.Label.OfferMgmt_FileUploadSuccessMsg);
+        System.assertEquals(SaveCSV[0],System.Label.OfferMgmt_FileUploadSuccessMsg, 'This test asserts that SaveCSV is successful.');
         test.stopTest();
     }    
     
@@ -189,7 +189,7 @@ public class Attachment_Controller_Test{
         case1.add(',380,sdfsdf');
         case1.add(',23,dsfsdf');
         List<String> SaveCSV = Attachment_Controller.SaveCSV(case1, 'Import'); 
-        System.assertEquals(SaveCSV[0],System.Label.OfferMgmt_FileUploadSuccessMsg);
+        System.assertEquals(SaveCSV[0],System.Label.OfferMgmt_FileUploadSuccessMsg, 'This test asserts that SaveCSV is successful.');
         test.stopTest();
     }
     
@@ -198,7 +198,7 @@ public class Attachment_Controller_Test{
         test.startTest();
         List<String> case4 = new List<String>{'OfferNamePartner IDisActive','offer1efgfalse','offer1,efg,false'};
             List<String> SaveCSV = Attachment_Controller.SaveCSV(case4,'Import'); 
-        System.assertEquals(SaveCSV[0],'Corrupted CSV');
+        System.assertEquals(SaveCSV[0],'Corrupted CSV', 'Verify that the CSV file is corrupted.');
         test.stopTest();
     }
     
@@ -207,7 +207,7 @@ public class Attachment_Controller_Test{
         test.startTest();
         List<String> case4 = new List<String>{'',''};
             List<String> SaveCSV = Attachment_Controller.SaveCSV(case4,'Import');  
-        System.assertEquals(SaveCSV[0],'Invalid CSV format');
+        System.assertEquals(SaveCSV[0],'Invalid CSV format', 'Checks that the CSV format is valid.');
         test.stopTest();
     }
     
@@ -217,7 +217,7 @@ public class Attachment_Controller_Test{
         String headers = System.Label.OfferMgmt_OfferName+','+System.Label.OfferMgmt_PartnerID+','+System.Label.OfferMgmt_isActive;
         List<String> case4 = new List<String>{headers,''};
             List<String> SaveCSV = Attachment_Controller.SaveCSV(case4, 'Import');  
-        System.assertEquals(SaveCSV[0],'Empty CSV');
+        System.assertEquals(SaveCSV[0],'Empty CSV', 'Test if CSV file is empty.');
         test.stopTest();
     }
     @isTest
@@ -225,7 +225,7 @@ public class Attachment_Controller_Test{
         test.startTest();
         List<String> case4 = new List<String>{};
             List<String> SaveCSV = Attachment_Controller.SaveCSV(case4,'Import'); 
-        System.assertEquals(SaveCSV.size(),1);
+        System.assertEquals(SaveCSV.size(),1, 'Test if the size of the CSV file is equal to 1.');
         test.stopTest();
     }
     @isTest
@@ -233,7 +233,7 @@ public class Attachment_Controller_Test{
         test.startTest();
         List<String> case4 = new List<String>{', ,','null,123,'};
             List<String> SaveCSV = Attachment_Controller.SaveCSV(case4,'Import'); 
-        System.assertEquals(SaveCSV[0],'Invalid CSV format');
+        System.assertEquals(SaveCSV[0],'Invalid CSV format', 'Checks that the CSV format is valid.');
         test.stopTest();
     }
     @isTest
@@ -241,7 +241,7 @@ public class Attachment_Controller_Test{
         test.startTest();
         List<String> case4 = new List<String>{', ,','null,123,'};
             List<String> SaveCSV = Attachment_Controller.SaveCSV(case4,'Import'); 
-        System.assertEquals(SaveCSV[0],'Invalid CSV format');
+        System.assertEquals(SaveCSV[0],'Invalid CSV format', 'Checks that the CSV format is valid.');
         test.stopTest();
     }
     @isTest
@@ -253,7 +253,7 @@ public class Attachment_Controller_Test{
                 case1.add('offerFAP1,380,false');
             processTraverseCSVBatch batch = new processTraverseCSVBatch(case1,true,'Import');
             Database.executeBatch(batch);
-            System.assert(case1.size()>0);
+            System.assert(case1.size()>0, 'Test if there are no cases.');
             test.stopTest();
         }        
     }    
@@ -265,7 +265,7 @@ public class Attachment_Controller_Test{
             case1.add('offerFAP1,380,true');
         processTraverseCSVBatch batch = new processTraverseCSVBatch(case1,false,'Import');
         Database.executeBatch(batch);
-        System.assert(case1.size()>0);
+        System.assert(case1.size()>0, 'Test if there are no cases.');
         test.stopTest();
         
     }
@@ -277,7 +277,7 @@ public class Attachment_Controller_Test{
             case1.add('offerFAP1--,380,true');
         processTraverseCSVBatch batch = new processTraverseCSVBatch(case1,false,'Import');
         Database.executeBatch(batch);
-        System.assert(case1.size()>0);
+        System.assert(case1.size()>0, 'Test if there are no cases.');
         test.stopTest();
         
     }
@@ -288,7 +288,7 @@ public class Attachment_Controller_Test{
         List<String> case1 = new List<String>{headers,'sasas,HNSDWAYISP,true'};
             case1.add('ttt,Test1FAP,true');
         List<String> SaveCSV = Attachment_Controller.SaveCSV(case1, 'Import');
-        System.assertEquals(SaveCSV[0],System.Label.OfferMgmt_FileUploadSuccessMsg);
+        System.assertEquals(SaveCSV[0],System.Label.OfferMgmt_FileUploadSuccessMsg, 'This test asserts that SaveCSV is successful.');
         test.stopTest();
     } 
     
@@ -299,7 +299,7 @@ public class Attachment_Controller_Test{
         List<String> case1 = new List<String>{headers,'sasas,HNSDWAYISP,true'};
             case1.add('ttt,Test1FAP,true');
         List<String> SaveCSV = Attachment_Controller.SaveCSV(case1, 'Import'); 
-        System.assertEquals(SaveCSV[0],'Invalid CSV format');
+        System.assertEquals(SaveCSV[0],'Invalid CSV format', 'Checks that the CSV format is valid.');
         test.stopTest();
     }   
     @isTest
@@ -310,7 +310,7 @@ public class Attachment_Controller_Test{
             case1.add('ttt,Test1FAP,true');
         Attachment_Controller.errorMsg.add('Invalid Data');
         List<String> SaveCSV = Attachment_Controller.SaveCSV(case1, 'Import'); 
-        System.assertEquals(SaveCSV[0],'Invalid Data');
+        System.assertEquals(SaveCSV[0],'Invalid Data', 'Assert that SaveCSV is valid');
         test.stopTest();
     }   
     @isTest
@@ -321,7 +321,7 @@ public class Attachment_Controller_Test{
         List<String> case1 = new List<String>{null};
             processTraverseCSVBatch batch = new processTraverseCSVBatch(null,false,null);
         batch.execute(null,null);
-        System.assert(case1.size()>0);
+        System.assert(case1.size()>0, 'Test if there are no cases.');
         test.stopTest();
     } 
     @isTest
@@ -332,7 +332,7 @@ public class Attachment_Controller_Test{
         List<String> case1 = new List<String>{null};
             processSaveCSVBatch batch = new processSaveCSVBatch(null,null,null,false,'1',1,1,'Import',null,null,null,null,null,null);
         batch.execute(null,null);
-        System.assert(case1.size()>0);
+        System.assert(case1.size()>0, 'Test if there are no cases.');
         test.stopTest();
     } 
     
