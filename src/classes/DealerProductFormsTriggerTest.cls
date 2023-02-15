@@ -46,7 +46,7 @@ private class DealerProductFormsTriggerTest {
             Dealer_Product_Forms__c form1 = TWGTestFactory.createDealerProductForm(dp, 'WRAWS3690510B', System.today() - 75, System.today() - 45);
         }
         catch(DMLException e) {
-            System.assert(e.getMessage().contains(Label.CPM_Overlapping_Dates));
+            System.assert(e.getMessage().contains(Label.CPM_Overlapping_Dates), 'Checks that the message contains the CPM overlapping dates label.');
         }
         
         //Scenario: Validate that overlapping dates with different agreement numbers do not cause a failure
@@ -69,7 +69,7 @@ private class DealerProductFormsTriggerTest {
             TWGTestFactory.createDealerProductForm(dp, 'WRAWS3690510B', form.End_Date__c - 5, null);
         }
         catch(DMLException e) {
-            System.assert(e.getMessage().contains(Label.CPM_No_End_Date));
+            System.assert(e.getMessage().contains(Label.CPM_No_End_Date), 'Checks that the message is a CPM_No_End_Date');
         }
 
         
@@ -78,21 +78,21 @@ private class DealerProductFormsTriggerTest {
             Dealer_Product_Forms__c form5 = TWGTestFactory.createDealerProductForm(dp, 'WRAWS3690510B', System.today() + 5, null);
         }
         catch(DMLException e) {
-            System.assert(e.getMessage().contains(Label.CPM_Multiple_Missing_End_Dates));
+            System.assert(e.getMessage().contains(Label.CPM_Multiple_Missing_End_Dates), 'Checks that the message contains the label CPM_Multiple_Missing_End_Dates');
         }
         
         try {
             TWGTestFactory.createDealerProductForm(dp, 'WRAWS3690510B', System.today(), System.today() - 30);
         }
         catch(DMLException e) {
-            System.assert(e.getMessage().contains(Label.CPM_Start_Date_Before_End_Date));
+            System.assert(e.getMessage().contains(Label.CPM_Start_Date_Before_End_Date), 'Checks that the message is in the CPM_Start_Date_Before_End_');
         }
         
         try {
             TWGTestFactory.createDealerProductForm(dp, 'WRAWS3690510B', System.today() - 3, System.today());
         }
         catch(DMLException e) {
-            System.assert(e.getMessage().contains(Label.CPM_End_Date_Less_Than));
+            System.assert(e.getMessage().contains(Label.CPM_End_Date_Less_Than), 'Checks that the CPM end date is less than or equal to the date specified in the');
         }
         
         Test.stopTest();
@@ -143,10 +143,10 @@ private class DealerProductFormsTriggerTest {
       Integer counter = 0;
         for (integer i = 0; i == numberOfRecords * 2; i++) {
         if (counter < numberOfRecords) {
-          System.assert(formSaveResult[i].isSuccess());
+          System.assert(formSaveResult[i].isSuccess(), 'This method is called when the form is saved.');
         }
         else {
-                System.assert(formSaveResult[i].getErrors() != null);
+                System.assert(formSaveResult[i].getErrors() != null, 'This method is called when there are errors in the form save result.');
         }
       }
     }
