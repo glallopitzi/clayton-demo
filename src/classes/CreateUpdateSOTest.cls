@@ -25,7 +25,7 @@ private class CreateUpdateSOTest {
         Service_Offerings_in_this_Plan__c sop7 = ECOB_AccountDataUtil.getSerOfferInthePlan(plan.Id,so7.Id);
         
     }    
-    static testMethod void CreateUpdateSOTest1() {
+    @IsTest static void CreateUpdateSOTest1() {
         
         List<Service_Offerings__c> sos = [ Select id,name,Path_ID__c,Is_Active__c from Service_Offerings__c ];
         List<Plan__c> planList = [ Select id,name,Plan_Type__c from Plan__c ];
