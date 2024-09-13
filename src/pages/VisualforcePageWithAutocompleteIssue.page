@@ -86,7 +86,7 @@
 												</tr>
 												<tr>
 													<td><label>{!$Label.site.password}</label></td>
-													<td><input onchange="{!c.passwordChanged}" name="pw" size="30" type="password" onkeyup="{!c.onKeyUp}" /></td>
+													<td><input onchange="{!c.passwordChanged}" name="pw" size="30" type="password" onkeyup="{!c.onKeyUp}" autocomplete="off" /></td>
 												</tr>
 												<tr>
 													<td></td>
