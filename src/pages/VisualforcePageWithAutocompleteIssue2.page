@@ -1,0 +1,62 @@
+<apex:page>
+
+    <apex:form>
+      <div class="slds-panel__section slds-border_bottom">
+        <h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.Update_Opal_Configuration}</h3>
+
+        <div class="slds-form-element">
+          <label for="username">{!$Label.Username}
+            <abbr class="slds-required" title="required">*</abbr>
+          </label>
+          <div class="slds-form-element__control">
+            <input type="password"/>
+          </div>
+        </div>
+
+        <div class="slds-form-element">
+          <label for="username">{!$Label.Username}
+            <abbr class="slds-required" title="required">*</abbr>
+          </label>
+          <div class="slds-form-element__control">
+            <apex:inputText value="{!username}" id="username" required="true" styleClass="slds-form-element__control slds-input" label="{!$Label.Username}"
+            />
+          </div>
+        </div>
+
+        <div class="slds-form-element">
+          <label for="password">{!$Label.Password}
+            <abbr class="slds-required" title="required">*</abbr>
+          </label>
+          <div class="slds-form-element__control">
+            <apex:inputSecret value="{!password}" id="password" required="true" styleClass="slds-form-element__control slds-input" label="{!$Label.Password}"
+            />
+          </div>
+        </div>
+
+        <div class="slds-form-element">
+          <label for="endpoint">{!$Label.Endpoint}
+            <abbr class="slds-required" title="required">*</abbr>
+          </label>
+          <div class="slds-form-element__control">
+            <apex:inputText value="{!endpoint}" id="endpoint" required="true" styleClass="slds-form-element__control slds-input" label="{!$Label.Endpoint}"
+            />
+          </div>
+        </div>
+
+        <div class="slds-form-element">
+          <label for="portfolioSetCode">{!$Label.Datasource}
+            <abbr class="slds-required" title="required">*</abbr>
+          </label>
+          <div class="slds-form-element__control">
+            <apex:inputText value="{!datasource}" id="datasource" required="true" styleClass="slds-form-element__control slds-input"
+              label="{!$Label.Datasource}" />
+          </div>
+        </div>
+
+        <apex:commandButton value="{!$Label.Submit}" action="{!save}" styleClass="slds-button slds-button--brand slds-m-top--medium" />
+      </div>
+    </apex:form>
+
+  </div>
+</apex:page>
+
