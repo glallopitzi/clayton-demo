@@ -3,6 +3,7 @@ public with sharing class CandidateGradeController2 {
     /* a master comment */
 
     public CandidateGradeController2() {   
+
     }
 
 
