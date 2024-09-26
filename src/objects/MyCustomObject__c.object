@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Title__c</fullName>
+        <label>Title</label>
+        <length>50</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <label>Description</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+    </fields>
+
+    <fields>
+        <fullName>Password__c</fullName>
+        <label>Password</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+    </fields>
+
+    <label>MyCustomObject</label>
+    <pluralLabel>MyCustomObjects</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>
