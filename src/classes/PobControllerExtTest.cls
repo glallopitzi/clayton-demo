@@ -35,7 +35,8 @@ private class PobControllerExtTest {
 
 
 
-	static testMethod void testPobControllerExt() {
+	@IsTest
+ static void testPobControllerExt() {
 		// just to show fixbot functionality
 	}
 	
@@ -48,7 +49,8 @@ private class PobControllerExtTest {
     		2) when turned on only products of a specific category must be shown
     		3) if the value of the filter isn't found, no results shoul be displayed
     	========================================================================================== */
-	static testMethod void testCategoryFilter() {
+	@IsTest
+ static void testCategoryFilter() {
 		
 		// Vars, users & data
 		Account myAccount;
@@ -145,7 +147,8 @@ private class PobControllerExtTest {
     	- prev/next
     	- first/last
     	====================================================================== */	
-	static testMethod void testPaginationWithProducts() {
+	@IsTest
+ static void testPaginationWithProducts() {
 		
 		// Setup users
 		User accountManager = TestDataFactory.createUser('Account Managers', 'aManager');
@@ -221,7 +224,8 @@ private class PobControllerExtTest {
     	Ensure pagination works correctly even if no products are available
     	in the database.
     	====================================================================== */
-    static testMethod void testPaginationNoProducts() {
+    @IsTest
+    static void testPaginationNoProducts() {
 		User accountManager = TestDataFactory.createUser('Account Managers', 'aManager');
 		System.runAs(accountManager) {
     		Test.startTest();
@@ -251,7 +255,8 @@ private class PobControllerExtTest {
     	(1) when creating new orders (label) 
     	(2) when updateing existing orders (order name)
     	====================================================================== */
-    static testMethod void testPageHeading() {
+    @IsTest
+    static void testPageHeading() {
     	
     	// Setup users
 		User accountManager = TestDataFactory.createUser('Account Managers', 'aManager');
@@ -307,7 +312,8 @@ private class PobControllerExtTest {
     	- (1) order and line items are loaded
     	- (2) on save order and line items are updated 
     	====================================================================== */
-	static testMethod void testLoadAndEditExistingOrder() {
+	@IsTest
+ static void testLoadAndEditExistingOrder() {
 		
 		User accountManager = TestDataFactory.createUser('Account Managers', 'aManager');
 		User inventoryManager = TestDataFactory.createUser('Inventory Managers','iManager');
@@ -406,7 +412,8 @@ private class PobControllerExtTest {
     	also when using pagination.
     	====================================================================== */
     
-    static testMethod void testUnitsLastWhenMovingAcrossPages() {
+    @IsTest
+    static void testUnitsLastWhenMovingAcrossPages() {
     	
     	User accountManager = TestDataFactory.createUser('Account Managers', 'aManager');
 		User inventoryManager = TestDataFactory.createUser('Inventory Managers','iManager');
@@ -460,7 +467,8 @@ private class PobControllerExtTest {
     	- line items refer to the right lots and order
     	- user is redirected to the order detail page 
     	====================================================================== */
-    static testMethod void testCreateNewOrder() {
+    @IsTest
+    static void testCreateNewOrder() {
     	
 		User accountManager = TestDataFactory.createUser('Account Managers', 'aManager');
 		User inventoryManager = TestDataFactory.createUser('Inventory Managers','iManager');
@@ -549,7 +557,8 @@ private class PobControllerExtTest {
     	- user is redirected stays on the same page to re-enter data
     	====================================================================== 
     */
-    static testMethod void testBudgetValidation() {
+    @IsTest
+    static void testBudgetValidation() {
     	
     	User accountManager = TestDataFactory.createUser('Account Managers', 'aManager');
 		User inventoryManager = TestDataFactory.createUser('Inventory Managers','iManager');
@@ -627,7 +636,8 @@ private class PobControllerExtTest {
     	- an error message is displayed
     	- user is redirected stays on the same page to re-enter data
     	====================================================================== */
-    static testMethod void testMissingStoreValidation() {
+    @IsTest
+    static void testMissingStoreValidation() {
     	
     	User accountManager = TestDataFactory.createUser('Account Managers', 'aManager');
 		User inventoryManager = TestDataFactory.createUser('Inventory Managers','iManager');
@@ -686,7 +696,8 @@ private class PobControllerExtTest {
     	as it's a non-reparentable relationship and editability is managed by
     	the <apex:inputField> tag 
     	=========================================================================== */
-    static testMethod void testFieldsEditabilityOnNewOrder() {
+    @IsTest
+    static void testFieldsEditabilityOnNewOrder() {
     	
     	User accountManager = TestDataFactory.createUser('Account Managers', 'aManager');
     	System.runAs(accountManager) {
@@ -736,7 +747,8 @@ private class PobControllerExtTest {
     	as it's a non-reparentable relationship and editability is managed by
     	the <apex:inputField> tag 
     	=========================================================================== */
-    static testMethod void testFieldsEditabilityOnExistingOrders() {
+    @IsTest
+    static void testFieldsEditabilityOnExistingOrders() {
     	
     	User accountManager = TestDataFactory.createUser('Account Managers', 'aManager');
     	System.runAs(accountManager) {
@@ -783,7 +795,8 @@ private class PobControllerExtTest {
     Product lots with 0 units should not be displayed unless they are part
     of the order already.
     ======================================================================== */
-    static testMethod void testProductLotsListing() {
+    @IsTest
+    static void testProductLotsListing() {
     	
 		User accountManager = TestDataFactory.createUser('Account Managers', 'aManager');
 		User inventoryManager = TestDataFactory.createUser('Inventory Managers','iManager');
