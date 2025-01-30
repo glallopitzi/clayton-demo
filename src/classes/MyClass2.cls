@@ -7,8 +7,11 @@ public class MyClass2 {
 		items = [Select Id, Name FROM account WHERE Name ='abc'];
 		items = [Select Id, Name FROM account];
 		items = [Select Id, Name FROM account WHERE Name ='abc' LIMIT 10];
+
+		List<SObject> items2 = [Select Id FROM lead];
 	}
 	
+
 	public static void select() {
 		for (Integer i=0; i<10; i++) {
 			if ([Select Id, Name FROM account LIMIT 10]) {
