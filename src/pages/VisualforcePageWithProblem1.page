@@ -3,6 +3,7 @@
     <apex:outputField value="{!Contact.Name}" />
     <apex:outputField value="{!Contact.Phone}" />
 
+    
     <apex:form>
       <apex:selectList value="{!statusToSet}">
         <apex:selectOption itemValue="Verified" itemLabel="Verified" />
