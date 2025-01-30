@@ -21,6 +21,7 @@ public class MyClass2 {
 	}
 	
 	public void negativeScenario() {
+		List<SObject> items2 = [Select Id FROM lead];
 		for (Integer i=0; i<10; [select id, name from group where name = 'abc']) {
 			i++;
 		}
