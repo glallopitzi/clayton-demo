@@ -9,7 +9,7 @@
             <abbr class="slds-required" title="required">*</abbr>
           </label>
           <div class="slds-form-element__control">
-            <input type="password"/>
+            <input type="password" autocomplete="off"/>
           </div>
         </div>
 
@@ -58,5 +58,4 @@
     </apex:form>
 
   </div>
-</apex:page>
-
+<
