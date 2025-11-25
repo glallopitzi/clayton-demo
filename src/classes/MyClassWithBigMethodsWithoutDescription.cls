@@ -193,9 +193,7 @@ public class MyClassWithBigMethodsWithoutDescription {
         System.debug('UploadedAccLoc List : '+UploadedAccLoc);   
         list<Database.SaveResult> SR = database.update(UploadedAccLoc);
         System.debug('SR'+ SR);*/
-    }  
-
-    public static void codecoverage(){
+    
             integer i=0;
             i++;
             i++;
