@@ -1,5 +1,6 @@
 public class MyClassWithBigMethodsWithoutDescription {
 
+    /* Address validation - related methods */
     public Address__c updateAddressValidationStatus(Address__c addressRec, AddressResponseWrapper parsedResponse) {
 		String summarizedRes = null;
 		String summarizedResData = null;
