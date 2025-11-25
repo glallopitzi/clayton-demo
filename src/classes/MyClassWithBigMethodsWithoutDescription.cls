@@ -89,11 +89,7 @@ public class MyClassWithBigMethodsWithoutDescription {
                 addressRec.Address_Validator_Response__c = summarizedRes;
             }
         }
-		return addressRec;
-	}
-
-    global void execute(Database.BatchableContext BC, List<TempLocations__c> scope)
-    {   
+		
         TempLocations__c eachLoc = scope[0];
         list<TempLocations__c> UploadedAccLoc = new list<TempLocations__c> ();
         list<TempLocations__c> SucccedAccLoc = new list<TempLocations__c> ();
