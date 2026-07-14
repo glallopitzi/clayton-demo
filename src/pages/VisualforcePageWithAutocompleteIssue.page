@@ -1,0 +1,144 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="CommunityCustomLayoutAPI">
+
+	<aura:attribute name="username" type="String" />
+	<aura:attribute name="password" type="String" />
+	<aura:attribute name="errorMessage" type="String" description="" />
+	<aura:attribute name="showError" type="Boolean" default="false" />
+	<aura:attribute name="messages" type="Object[]" />
+
+	<aura:attribute name="forgotUsernameLink" type="String" access="private" />
+	<aura:attribute name="forgotPasswordLink" type="String" access="private" />
+
+	<aura:attribute name="freelancerRegistrationLink" type="String" access="private" />
+	<aura:attribute name="supplierRegistrationLink" type="String" access="private" />	
+
+	<aura:handler name="init" value="{!this}" action="{!c.initialize}" />
+
+	<div id="background_image">
+	<table width="100%" cellpadding="3" cellspacing="3" border="0" id="publichome">
+		<tr>
+			<td valign="top" class="colmain">
+				<aura:if isTrue="{!v.messages.length > 0}">
+					<div class="apexp">
+						<aura:iteration items="{!v.messages}" var="msg">
+							<div class="bPageBlock brandSecondaryBrd bDetailBlock secondaryPalette">
+								<div class="pbBody">
+									<div>
+										<div class="pbSubsection">
+											<table class="detailList" border="0" cellpadding="0" cellspacing="0">
+												<tbody>
+													<tr>
+														<td class="data2Col first" colspan="2">
+															<h3>{!msg.name}</h3>
+														</td>
+													</tr>
+													<tr>
+														<td class="data2Col last" colspan="2">
+															<aura:unescapedHtml value="{!msg.content__c}" />
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="pbFooter secondaryPalette"><div class="bg"></div></div>
+							</div>
+						</aura:iteration>
+					</div>
+				</aura:if>
+			</td>
+
+			<td valign="top" class="colright">
+				<div class="loginBlockWrapper">
+					<div class="loginBlockTop"></div>
+
+					<div class="loginBlockMain">
+
+						<div class="apexp">
+							<div class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette">
+								<div class="pbHeader">						
+									<table border="0" cellpadding="0" cellspacing="0">
+										<tbody>
+											<tr>
+												<td class="pbTitle"><h2 class="mainTitle">{!$Label.c.Login}</h2></td>
+												<td>&nbsp;</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="pbBody">
+									<form id="login_form" name="login" onsubmit="{!c.validateForm}">
+										<aura:if isTrue="{!v.showError}">
+											<span class="slds-m-vertical_medium" style="color:#cc0000">
+												{!v.errorMessage}
+											</span>
+										</aura:if>
+
+										<span class="slds-m-left_none">{!$Label.c.siteshome_login_addinfo}</span>
+										<br /><br />
+
+										<table>
+											<tbody>
+												<tr>
+													<td><label>{!$Label.site.username}</label></td>
+													<td><input onchange="{!c.usernameChanged}" name="username" size="30" type="text" autocomplete="on" onkeyup="{!c.onKeyUp}" /></td>
+												</tr>
+												<tr>
+													<td><label>{!$Label.site.password}</label></td>
+													<td><input onchange="{!c.passwordChanged}" name="pw" size="30" type="password" onkeyup="{!c.onKeyUp}" /></td>
+												</tr>
+												<tr>
+													<td></td>
+													<td><input class="btn" type="submit" value="{!$Label.c.Login}" onclick="{!c.validateForm}" /></td>
+												</tr>
+												<tr>
+													<td colspan="2">&nbsp;</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>
+														<a href="{!v.forgotPasswordLink}">{!$Label.site.forgot_your_password_q}</a>
+													</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td>
+														<a href="{!v.forgotUsernameLink}">{!$Label.c.forgotusername}</a>
+													</td>
+												</tr>
+												<aura:if isTrue="{!v.freelancerRegistrationLink  != null}">
+													<tr>
+														<td></td>
+														<td>
+															<a href="{!v.freelancerRegistrationLink}">{!$Label.c.freelancerreg_linktitle}</a>
+														</td>
+													</tr>
+												</aura:if>
+												<aura:if isTrue="{!v.supplierRegistrationLink != null}">
+													<tr>
+														<td></td>
+														<td>
+															<a href="{!v.supplierRegistrationLink}">{!$Label.c.supplierreg_linktitle}</a>
+														</td>
+													</tr>
+												</aura:if>																							
+											</tbody>
+										</table>
+									</form>
+									<div style="height: 175px;"></div>
+								</div>
+								<div class="pbFooter secondaryPalette">
+									<div class="bg"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="loginBlockBottom"></div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	</div>
+</aura:component>
