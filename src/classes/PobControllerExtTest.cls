@@ -33,6 +33,12 @@ private class PobControllerExtTest {
 	private static final Integer EXPECTED_PAGES_PEARS_ONLY = 2;
 	private static final Decimal TEST_ORDER_BUDGET = 150000;
 
+
+
+	static testMethod void testPobControllerExt() {
+		// just to show fixbot functionality
+	}
+	
 	/** 
 		TEST PRODUCT CATEGORY FILTER
 		==========================================================================================
