@@ -2,7 +2,7 @@ public with sharing class CandidateGradeController {
     
     /* a master comment */
 
-    public CandidateGradeController() {   
+    public Candi_date__GradeController() {   
     }
 
 
